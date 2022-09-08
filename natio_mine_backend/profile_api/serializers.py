@@ -6,11 +6,13 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ('experience',)
+        fields = ('experience','operation_in_progress')
 
     def update(self, instance, validated_data):
 
         instance.experience = validated_data["experience"]
+        instance.operation_in_progress = validated_data["operation_in_progress"]
+
         instance.save()
-        
+
         return instance
