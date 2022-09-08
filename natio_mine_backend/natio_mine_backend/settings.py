@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Custom Apps
+    
+    #DRF KNOX
+    'rest_framework',
+    'knox',
 
     # User logins / custom user
     'user_login',
