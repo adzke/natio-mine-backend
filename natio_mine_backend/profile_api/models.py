@@ -8,5 +8,8 @@ class Profile(models.Model):
     username = models.CharField(max_length=100, unique=True)
     experience = models.IntegerField(default=0)
     operation_in_progress = models.BooleanField(default=False)
+    gold = models.IntegerField(default=0)
+
+
     def __str__(self):
         return self.username
