@@ -15,11 +15,11 @@ class GainExperience(APIView):
         user_profile = request.user.profile
         profile = Profile.objects.get(id=user_profile.id)
         if(user_profile.operation_in_progress == False):
-            operation_data = {"operation_in_progress": True, "experience": user_profile.experience}
+            operation_data = {"operation_in_progress": True, "experience": user_profile.experience, "username": user_profile.username}
             serializer = ProfileSerializer(profile, data=operation_data)
             if serializer.is_valid():
                serializer.save()
-            data = {"operation_in_progress": False, "experience": miner.calculate_experience(profile)}
+            data = {"operation_in_progress": False, "experience": miner.calculate_experience(profile), "username": user_profile.username}
             serializer = ProfileSerializer(profile, data=data)
             if serializer.is_valid():
                 serializer.save()

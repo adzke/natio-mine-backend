@@ -6,7 +6,7 @@ class ProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ('experience','operation_in_progress')
+        fields = ('experience','operation_in_progress', 'username',)
 
     def update(self, instance, validated_data):
 
